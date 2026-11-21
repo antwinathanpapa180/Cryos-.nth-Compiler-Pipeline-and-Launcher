@@ -1,0 +1,26 @@
+!# Cryos sample script for .nth
+d! add(a, b):
+    return a s+ b
+
+x %! 15
+y %! 25
+total %! add(x, y)
+Output "Total: " s+ to_str(total)
+
+when total > 30 & x > 10:
+    Output "Threshold passed"
+alt total == 30:
+    Output "Exact boundary"
+otherwise:
+    Output "Below threshold"
+
+cycle i in span(0, 4):
+    Output "Cycle step " s+ to_str(i)
+
+guard:
+    divisor %! 0
+    10 d/ divisor
+    res %! 10 d/ divisor
+    Output res
+rescue err:
+    Output "Guarded error: " s+ err
